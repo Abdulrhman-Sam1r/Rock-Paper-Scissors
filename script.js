@@ -1,7 +1,6 @@
 function getComputerChoice (){
     let num = Math.random();
 
-    console.log(num);
     if(num > 0.666)
         return "rock";
     else if (num > 0.333)
@@ -11,13 +10,13 @@ function getComputerChoice (){
 }
 
 function getHumanChoice (){
-    return console.prompt("Rock Paper Scissors");
+    return prompt("Rock Paper Scissors");
 }
 
 function playRound(humanChoice, computerChoice){
     humanChoice = humanChoice.toLowerCase();
 
-    console.log("Human score:"+humanScore+"Computer score:"+computerScore)
+    console.log("Human score: "+humanScore+" | Computer score: "+computerScore)
     console.log("Round"+round);
     console.log("Computer Choice:"+computerChoice);
     console.log("Human Choice:"+humanChoice);
@@ -51,8 +50,22 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
+function playGame(){
+    for(let i =0; i<5; i++){
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+
+    if(humanScore > computerScore)
+        console.log("Winner Winner Chicken dinner!");
+    else if(humanScore == computerScore)
+        console.log("Game ended. No winner!");
+    else
+        console.log("Hard Luck!");
+    
+}
+
 let round = 1;
 let computerScore = 0;
 let humanScore = 0;
 
-console.log(getHumanChoice());
+playGame();
